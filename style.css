@@ -1,0 +1,94 @@
+body{
+    background-color: rgb(255, 246, 212); /* Set this to whatever u want */
+}
+
+h1{
+    margin-top: 1vw;
+    margin-left: 1vw;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13vw;
+}
+
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    
+    padding-left: 15vw;
+    padding-right: 2rem;
+  }
+  
+
+  .img-frame {
+    overflow: hidden;
+  
+    flex: 1 1 calc(33.333% - 1.5rem);
+    max-width: calc(33.333% - 1.5rem);
+  }
+  
+  /* Responsive: 2 per row */
+  @media (max-width: 900px) {
+    .img-frame {
+      flex-basis: calc(50% - 1.5rem);
+      max-width: calc(50% - 1.5rem);
+    }
+  }
+  
+ 
+  .gallery {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 12rem;
+  }
+
+
+  /* zoom hack */
+
+  .img-frame {
+    overflow: hidden;
+    flex: 1 1 auto; 
+  }
+
+  .img-frame img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.4s ease;
+    transform-origin: center;
+  }
+  
+  .img-frame.zoomed img {
+    transform: scale(4);
+  }
+
+  .call-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    background: #ffd900; /* loud yellow */
+    color: #000;
+  
+    text-align: center;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+  
+    padding: 1.2rem 1rem;
+    font-size: clamp(1.2rem, 3vw, 2.5rem);
+  
+    z-index: 10000;
+  }
+
+  @keyframes blink {
+    0%, 49% {
+      opacity: 1;
+    }
+    50%, 100% {
+      opacity: 0;
+    }
+  }
+  
+  .call-banner-text {
+    animation: blink 2s infinite;
+  }
